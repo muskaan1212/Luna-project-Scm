@@ -166,5 +166,26 @@
                 </div>
             </div>
         </nav>
+      <!-- Mobile Menu -->
+        <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="flex justify-end mb-6">
+                <button class="btn btn-icon" id="mobile-menu-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+            <nav class="flex flex-col gap-4">
+                <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-100 hover:text-purple-500" onclick="showTab('home'); closeMobileMenu()">Home</a>
+                <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-100 hover:text-purple-500" onclick="showTab('remedies'); closeMobileMenu()">Home Remedies</a>
+                <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-100 hover:text-purple-500" onclick="showTab('mood'); closeMobileMenu()">Mood Tracker</a>
+                <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-100 hover:text-purple-500" onclick="showTab('contact'); closeMobileMenu()">Contact</a>
+                <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-100 hover:text-purple-500" onclick="showTab('analysis'); closeMobileMenu()">Analysis</a>
+                <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-100 hover:text-purple-500" onclick="showTab('about'); closeMobileMenu()">About</a>
+                <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-100 hover:text-purple-500" onclick="showTab('developers'); closeMobileMenu()">Meet the Team</a>
+                <button class="btn btn-outline mt-4" onclick="logout()">Logout</button>
+            </nav>
+        </div>
 </body>
 </html>
