@@ -317,5 +317,97 @@
                     </div>
                 </div>
             </div>
+          <!-- Mood Tracker Tab -->
+            <div id="mood" class="tab-content">
+                <div class="container mx-auto py-8 px-4 space-y-8">
+                    <div class="card scale-in">
+                        <div class="card-header">
+                            <h2 class="card-title">Mood Tracker</h2>
+                            <p class="card-description">Track your emotional wellbeing throughout your cycle</p>
+                        </div>
+                        <div class="card-content">
+                            <div class="space-y-6 max-w-2xl mx-auto">
+                                <div class="bg-gray-100 p-6 rounded-lg">
+                                    <h3 class="text-xl font-semibold mb-4">How are you feeling today? 🤔</h3>
+                                    
+                                    <div class="space-y-4">
+                                        <div class="space-y-2">
+                                            <label for="energy" class="form-label">Energy Level</label>
+                                            <select id="energy" class="form-select">
+                                                <option value="">Select your energy level</option>
+                                                <option value="high">Very Energetic 🔋</option>
+                                                <option value="medium">Moderate Energy ⚡</option>
+                                                <option value="low">Low Energy 😴</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="space-y-2">
+                                            <label for="comfort" class="form-label">Physical Comfort</label>
+                                            <select id="comfort" class="form-select">
+                                                <option value="">Select comfort level</option>
+                                                <option value="good">Comfortable 😊</option>
+                                                <option value="mild">Mild Discomfort 😕</option>
+                                                <option value="pain">Having Pain 😣</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="space-y-2">
+                                            <label for="emotion" class="form-label">Emotional State</label>
+                                            <select id="emotion" class="form-select">
+                                                <option value="">Select your emotion</option>
+                                                <option value="happy">Happy 😊</option>
+                                                <option value="anxious">Anxious 😰</option>
+                                                <option value="irritated">Irritated 😠</option>
+                                                <option value="sad">Sad 😢</option>
+                                                <option value="neutral">Neutral 😐</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <button onclick="analyzeMood()" class="btn btn-primary w-full mt-4">Analyze My Mood</button>
+                                    </div>
+                                </div>
+                                
+                                <div id="mood-result" class="card overflow-hidden fade-in hidden">
+                                    <div class="p-6">
+                                        <div class="flex flex-col items-center text-center space-y-4">
+                                            <div class="text-5xl" id="mood-emoji"></div>
+                                            <h4 class="text-xl font-semibold text-purple-500" id="mood-title"></h4>
+                                            <p class="text-gray-500" id="mood-recommendation"></p>
+                                            
+                                            <div class="grid grid-cols-3 gap-4 w-full mt-4">
+                                                <div class="mood-item staggered-item">
+                                                    <div class="mood-icon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                                        </svg>
+                                                    </div>
+                                                    <span class="text-xs font-medium">Self-care</span>
+                                                </div>
+                                                <div class="mood-item staggered-item" style="animation-delay: 0.1s;">
+                                                    <div class="mood-icon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                        </svg>
+                                                    </div>
+                                                    <span class="text-xs font-medium">Rest</span>
+                                                </div>
+                                                <div class="mood-item staggered-item" style="animation-delay: 0.2s;">
+                                                    <div class="mood-icon">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                                        </svg>
+                                                    </div>
+                                                    <span class="text-xs font-medium">Connect</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 </body>
 </html>
