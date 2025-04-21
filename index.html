@@ -187,5 +187,108 @@
                 <button class="btn btn-outline mt-4" onclick="logout()">Logout</button>
             </nav>
         </div>
+      <!-- Main Content -->
+        <main class="flex-1">
+            <!-- Home Tab -->
+            <div id="home" class="tab-content active">
+                <div class="container mx-auto py-8 px-4 space-y-8">
+                    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        <div class="card col-span-full md:col-span-2 scale-in">
+                            <div class="card-header">
+                                <h2 class="card-title">Period Tracker</h2>
+                                <p class="card-description">Track your menstrual cycle and stay informed about your health</p>
+                            </div>
+                            <div class="card-content">
+                                <div class="space-y-6">
+                                    <div class="grid gap-4 md:grid-cols-2">
+                                        <div class="space-y-2">
+                                            <label for="lastPeriod" class="form-label">Last Period Start Date</label>
+                                            <input type="date" id="lastPeriod" class="form-input">
+                                        </div>
+                                        
+                                        <div class="space-y-2">
+                                            <label for="cycleDuration" class="form-label">Average Cycle Length (days)</label>
+                                            <input type="number" id="cycleDuration" class="form-input" min="20" max="45" value="28">
+                                        </div>
+                                    </div>
+                                    
+                                    <button onclick="calculateNextPeriod()" class="btn btn-primary">Calculate Next Period</button>
+                                    
+                                    <div id="period-result" class="card mt-4 overflow-hidden fade-in hidden">
+                                        <div class="p-6">
+                                            <h4 class="text-lg font-semibold text-purple-500 mb-4">Your Results</h4>
+                                            <div class="grid gap-4 md:grid-cols-2">
+                                                <div class="space-y-1">
+                                                    <p class="text-sm text-gray-500">Next period expected:</p>
+                                                    <p class="text-lg font-medium" id="next-period-date"></p>
+                                                </div>
+                                                <div class="space-y-1">
+                                                    <p class="text-sm text-gray-500">Fertile window:</p>
+                                                    <p class="text-lg font-medium" id="fertile-window"></p>
+                                                </div>
+                                                <div class="space-y-1">
+                                                    <p class="text-sm text-gray-500">Days until next period:</p>
+                                                    <p class="text-lg font-medium" id="days-until"></p>
+                                                </div>
+                                                <div class="space-y-1">
+                                                    <p class="text-sm text-gray-500">Cycle length:</p>
+                                                    <p class="text-lg font-medium" id="cycle-length"></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card scale-in" style="animation-delay: 0.1s;">
+                            <div class="card-header">
+                                <h2 class="card-title">Cycle Stats</h2>
+                                <p class="card-description">Your cycle at a glance</p>
+                            </div>
+                            <div class="card-content space-y-4">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="bg-gray-100 rounded-lg p-4 text-center">
+                                        <p class="text-sm text-gray-500">Avg. Cycle</p>
+                                        <p class="text-2xl font-bold">28 days</p>
+                                    </div>
+                                    <div class="bg-gray-100 rounded-lg p-4 text-center">
+                                        <p class="text-sm text-gray-500">Avg. Period</p>
+                                        <p class="text-2xl font-bold">5 days</p>
+                                    </div>
+                                    <div class="bg-gray-100 rounded-lg p-4 text-center">
+                                        <p class="text-sm text-gray-500">Last Period</p>
+                                        <p class="text-2xl font-bold" id="last-period-display">-</p>
+                                    </div>
+                                    <div class="bg-gray-100 rounded-lg p-4 text-center">
+                                        <p class="text-sm text-gray-500">Next Period</p>
+                                        <p class="text-2xl font-bold" id="next-period-display">-</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                        <div class="card col-span-full scale-in" style="animation-delay: 0.2s;">
+                            <div class="card-header">
+                                <h2 class="card-title">Calendar View</h2>
+                                <p class="card-description">Track your cycle on the calendar</p>
+                            </div>
+                            <div class="card-content">
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between">
+                                        <button class="btn btn-outline btn-icon" id="prev-month">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                                            </svg>
+                                        </button>
+                                        <h3 class="text-lg font-medium" id="current-month-display"></h3>
+                                        <button class="btn btn-outline btn-icon" id="next-month">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </button>
+                                    </div>
 </body>
 </html>
