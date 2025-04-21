@@ -512,6 +512,47 @@
                     </div>
                 </div>
             </div>
+          <!-- Contact Tab -->
+            <div id="contact" class="tab-content">
+                <div class="container mx-auto py-8 px-4 space-y-8">
+                    <div class="card scale-in">
+                        <div class="card-header">
+                            <h2 class="card-title">Contact & Feedback</h2>
+                            <p class="card-description">We'd love to hear from you</p>
+                        </div>
+                        <div class="card-content">
+                            <form id="feedback-form" class="max-w-lg mx-auto">
+                                <div class="space-y-4">
+                                    <div class="form-group">
+                                        <label for="name" class="form-label">Your Name</label>
+                                        <input type="text" id="name" class="form-input" placeholder="Jane Doe" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="email" class="form-label">Your Email</label>
+                                        <input type="email" id="email" class="form-input" placeholder="jane@example.com" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="rating" class="form-label">Rate your experience</label>
+                                        <select id="rating" class="form-select" required>
+                                            <option value="">Select a rating</option>
+                                            <option value="5">Excellent</option>
+                                            <option value="4">Good</option>
+                                            <option value="3">Average</option>
+                                            <option value="2">Fair</option>
+                                            <option value="1">Poor</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message" class="form-label">Your Feedback</label>
+                                        <textarea id="message" rows="5" class="form-input" placeholder="Tell us what you think..." required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-full">Submit Feedback</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 </body>
 </html>
