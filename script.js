@@ -67,4 +67,38 @@ function setupEventListeners() {
   mobileMenuToggle.addEventListener("click", toggleMobileMenu)
   mobileMenuClose.addEventListener("click", closeMobileMenu)
   mobileMenuOverlay.addEventListener("click", closeMobileMenu)
+// Theme toggle 
+  themeToggle.addEventListener("click", toggleTheme)
 
+  // Calendar navigation
+  prevMonthBtn.addEventListener("click", () => {
+    currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1)
+    updateCalendarDisplay()
+  })
+
+  nextMonthBtn.addEventListener("click", () => {
+    currentMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1)
+    updateCalendarDisplay()
+  })
+
+  // Forms
+  feedbackForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+    submitFeedback()
+  })
+
+  healthForm.addEventListener("submit", (e) => {
+    e.preventDefault()
+    submitHealthData()
+  })
+}
+
+// Authentication functions
+function login() {
+  const email = document.getElementById("login-email").value
+  const password = document.getElementById("login-password").value
+
+  if (!email || !password) {
+    alert("Please fill in all fields")
+    return
+  }
