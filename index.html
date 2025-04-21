@@ -553,6 +553,67 @@
                     </div>
                 </div>
             </div>
+          <!-- Analysis Tab -->
+            <div id="analysis" class="tab-content">
+                <div class="container mx-auto py-8 px-4 space-y-8">
+                    <div class="card scale-in">
+                        <div class="card-header">
+                            <h2 class="card-title">Period Analysis</h2>
+                            <p class="card-description">Understand your cycle patterns</p>
+                        </div>
+                        <div class="card-content">
+                            <div class="grid gap-8 md:grid-cols-2">
+                                <div class="bg-gray-100 p-6 rounded-lg">
+                                    <h3 class="text-xl font-semibold mb-4">Share Your Experience</h3>
+                                    <form id="health-form" class="space-y-4">
+                                        <div class="form-group">
+                                            <label for="age" class="form-label">Your Age</label>
+                                            <input type="number" id="age" class="form-input" min="8" max="60" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="regularity" class="form-label">Period Regularity</label>
+                                            <select id="regularity" class="form-select" required>
+                                                <option value="">Select your experience</option>
+                                                <option value="regular">Regular (Every 21-35 days)</option>
+                                                <option value="irregular">Irregular (Unpredictable)</option>
+                                                <option value="veryIrregular">Very Irregular (>35 days apart)</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="symptoms" class="form-label">Common Symptoms</label>
+                                            <select id="symptoms" class="form-select" required>
+                                                <option value="">Select primary symptom</option>
+                                                <option value="cramps">Severe Cramps</option>
+                                                <option value="headache">Headaches</option>
+                                                <option value="mood">Mood Swings</option>
+                                                <option value="fatigue">Fatigue</option>
+                                                <option value="none">No Major Symptoms</option>
+                                            </select>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-full">Submit Data</button>
+                                    </form>
+                                </div>
+                                <div>
+                                    <h3 class="text-xl font-semibold mb-4">Your Cycle Insights</h3>
+                                    <div class="bg-white p-6 rounded-lg shadow-md">
+                                        <p class="mb-4">Based on your data, here are some insights:</p>
+                                        <ul class="space-y-2 list-disc pl-5">
+                                            <li>Your cycle length is within the normal range</li>
+                                            <li>Your symptoms are common among people your age</li>
+                                            <li>Consider tracking your mood alongside your cycle</li>
+                                            <li>Hydration may help with your reported symptoms</li>
+                                        </ul>
+                                        <div class="mt-6 pt-6 border-t border-gray-200">
+                                            <h4 class="font-medium mb-2">Recommendations:</h4>
+                                            <p class="text-sm text-gray-600">Continue tracking for at least 3 months to establish your personal patterns. This will help you better predict and prepare for your periods.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 </body>
 </html>
