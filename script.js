@@ -102,3 +102,33 @@ function login() {
     alert("Please fill in all fields")
     return
   }
+// In a real app, you would authenticate with a backend
+  // For demo purposes, we'll just simulate a successful login
+  setTimeout(() => {
+    loginPage.classList.add("hidden")
+    dashboardPage.classList.remove("hidden")
+
+    // Animate nav items
+    document.querySelectorAll(".nav-item").forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add("slide-in")
+      }, index * 100)
+    })
+  }, 1000)
+}
+
+function register() {
+  const name = document.getElementById("register-name").value
+  const email = document.getElementById("register-email").value
+  const password = document.getElementById("register-password").value
+  const confirmPassword = document.getElementById("register-confirm-password").value
+
+  if (!name || !email || !password || !confirmPassword) {
+    alert("Please fill in all fields")
+    return
+  }
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match")
+    return
+  }
