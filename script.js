@@ -132,3 +132,22 @@ function register() {
     alert("Passwords do not match")
     return
   }
+// In a real app, you would register with a backend
+  // For demo purposes, we'll just simulate a successful registration
+  setTimeout(() => {
+    loginPage.classList.add("hidden")
+    dashboardPage.classList.remove("hidden")
+
+    // Animate nav items
+    document.querySelectorAll(".nav-item").forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add("slide-in")
+      }, index * 100)
+    })
+  }, 1000)
+}
+
+function logout() {
+  dashboardPage.classList.add("hidden")
+  loginPage.classList.remove("hidden")
+}
