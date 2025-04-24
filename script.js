@@ -152,5 +152,8 @@ function logout() {
   dashboardPage.classList.add("hidden")
   loginPage.classList.remove("hidden")
 }
-=======
->>>>>>> Stashed changes
+// UI functions
+function toggleMobileMenu() {
+  mobileMenu.classList.add("open")
+  mobileMenuOverlay.classList.add("open")
+}
