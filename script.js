@@ -161,7 +161,6 @@ function closeMobileMenu() {
 function toggleTheme() {
   isDarkMode = !isDarkMode
   document.body.classList.toggle("dark", isDarkMode)
- main
   // Update theme toggle icon
   if (isDarkMode) {
     themeToggle.innerHTML = `
