@@ -108,6 +108,7 @@ function login() {
     loginPage.classList.add("hidden")
     dashboardPage.classList.remove("hidden")
 
+<<<<<<< Updated upstream
     // Animate nav items
     document.querySelectorAll(".nav-item").forEach((item, index) => {
       setTimeout(() => {
@@ -151,3 +152,5 @@ function logout() {
   dashboardPage.classList.add("hidden")
   loginPage.classList.remove("hidden")
 }
+=======
+>>>>>>> Stashed changes
