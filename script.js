@@ -157,3 +157,11 @@ function toggleMobileMenu() {
   mobileMenu.classList.add("open")
   mobileMenuOverlay.classList.add("open")
 }
+function closeMobileMenu() {
+  mobileMenu.classList.remove("open")
+  mobileMenuOverlay.classList.remove("open")
+}
+
+function toggleTheme() {
+  isDarkMode = !isDarkMode
+  document.body.classList.toggle("dark", isDarkMode)
