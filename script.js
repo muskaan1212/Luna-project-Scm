@@ -108,7 +108,7 @@ function login() {
     loginPage.classList.add("hidden")
     dashboardPage.classList.remove("hidden")
 
-<<<<<<< Updated upstream
+ Updated upstream
     // Animate nav items
     document.querySelectorAll(".nav-item").forEach((item, index) => {
       setTimeout(() => {
@@ -134,3 +134,31 @@ function register() {
     return
   }
 
+ js-feature
+    // Animate nav items
+    document.querySelectorAll(".nav-item").forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add("slide-in")
+      }, index * 100)
+    })
+  }, 1000)
+}
+
+function logout() {
+  dashboardPage.classList.add("hidden")
+  loginPage.classList.remove("hidden")
+}
+// UI functions
+function toggleMobileMenu() {
+  mobileMenu.classList.add("open")
+  mobileMenuOverlay.classList.add("open")
+}
+function closeMobileMenu() {
+  mobileMenu.classList.remove("open")
+  mobileMenuOverlay.classList.remove("open")
+}
+
+function toggleTheme() {
+  isDarkMode = !isDarkMode
+  document.body.classList.toggle("dark", isDarkMode)
+ main
