@@ -179,3 +179,30 @@ else {
         `
   }
 }
+function showTab(tabId) {
+  // Update nav links
+  navLinks.forEach((link) => {
+    link.classList.remove("active")
+    if (link.getAttribute("onclick").includes(tabId)) {
+      link.classList.add("active")
+    }
+  })
+
+  // Update tab content
+  tabContents.forEach((tab) => {
+    tab.classList.remove("active")
+  })
+  document.getElementById(tabId).classList.add("active")
+
+  // Animate staggered items in the new tab
+  animateStaggeredItems()
+}
+
+function animateStaggeredItems() {
+  const staggeredItems = document.querySelectorAll(".staggered-item")
+  staggeredItems.forEach((item, index) => {
+    setTimeout(() => {
+      item.classList.add("fade-in")
+    }, index * 100)
+  })
+}
