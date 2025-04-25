@@ -206,3 +206,11 @@ function animateStaggeredItems() {
     }, index * 100)
   })
 }
+// Calendar functions
+function updateCalendarDisplay() {
+  // Update month display
+  currentMonthDisplay.textContent = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric" }).format(
+    currentMonth,
+  )
+
+
