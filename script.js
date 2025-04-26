@@ -241,3 +241,9 @@ function updateCalendarDisplay() {
     const emptyCell = document.createElement("div")
     calendarContainer.appendChild(emptyCell)
   }
+// Add days of the month
+  for (let day = 1; day <= lastDay.getDate(); day++) {
+    const date = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day)
+    const dayElement = document.createElement("button")
+    dayElement.classList.add("calendar-day")
+    dayElement.textContent = day
