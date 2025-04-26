@@ -247,3 +247,9 @@ function updateCalendarDisplay() {
     const dayElement = document.createElement("button")
     dayElement.classList.add("calendar-day")
     dayElement.textContent = day
+    // Check if this day is a period day or fertile day
+    if (periodDays.some((d) => isSameDay(d, date))) {
+      dayElement.classList.add("period")
+    } else if (fertileWindow.some((d) => isSameDay(d, date))) {
+      dayElement.classList.add("fertile")
+    }
