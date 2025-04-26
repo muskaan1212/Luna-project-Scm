@@ -253,3 +253,17 @@ function updateCalendarDisplay() {
     } else if (fertileWindow.some((d) => isSameDay(d, date))) {
       dayElement.classList.add("fertile")
     }
+    // Check if this day is selected
+    if (selectedDate && isSameDay(date, selectedDate)) {
+      dayElement.classList.add("selected")
+    }
+
+    // Add click event
+    dayElement.addEventListener("click", () => {
+      handleCalendarDayClick(date, dayElement)
+    })
+
+    calendarContainer.appendChild(dayElement)
+  }
+}
+
