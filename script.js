@@ -266,4 +266,9 @@ function updateCalendarDisplay() {
     calendarContainer.appendChild(dayElement)
   }
 }
-
+function handleCalendarDayClick(date, element) {
+  // Toggle selection
+  if (selectedDate && isSameDay(date, selectedDate)) {
+    selectedDate = null
+    element.classList.remove("selected")
+  } 
