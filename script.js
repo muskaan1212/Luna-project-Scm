@@ -272,3 +272,13 @@ function handleCalendarDayClick(date, element) {
     selectedDate = null
     element.classList.remove("selected")
   } 
+  else {
+    // Remove selected class from previously selected day
+    const selectedElement = document.querySelector(".calendar-day.selected")
+    if (selectedElement) {
+      selectedElement.classList.remove("selected")
+    }
+
+    selectedDate = date
+    element.classList.add("selected")
+  }
