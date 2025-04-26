@@ -1,0 +1,1 @@
+This feature enables user profile customization and allows dashboard customization with themes.

@@ -15,14 +15,16 @@
             </div>
         </header>
 
+    
+
         <main class="flex-1 container mx-auto grid md:grid-cols-2 gap-8 py-12 px-4">
             <div class="flex flex-col justify-center space-y-6 max-w-md mx-auto w-full">
                 <div class="space-y-2 text-center">
                     <h1 class="text-3xl font-bold">Welcome to Luna</h1>
                     <p class="text-gray-500">Track your cycle, understand your body, and take control of your health</p>
+            
                 </div>
-                
-                <div class="auth-container">
+                             <div class="auth-container">
                     <div class="auth-tabs">
                         <div class="auth-tab active" data-tab="login">Login</div>
                         <div class="auth-tab" data-tab="register">Register</div>
@@ -51,8 +53,7 @@
                                 </form>
                             </div>
                         </div>
-                        
-                        <div id="register-form" class="auth-form">
+                     <div id="register-form" class="auth-form">
                             <div class="card-header">
                                 <h2 class="card-title">Create an account</h2>
                                 <p class="card-description">Enter your information to create a Luna account</p>
@@ -124,7 +125,7 @@
                                 <span class="text-xs font-medium">Health Insights</span>
                             </div>
                         </div>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </main>
@@ -139,6 +140,7 @@
                         <a href="#" class="text-xl font-bold" onclick="showTab('home')">Luna</a>
                     </div>
     <!-- Desktop Navigation -->
+                  
                     <div class="hidden md:flex items-center space-x-4">
                         <a href="#" class="nav-link active" onclick="showTab('home')">Home</a>
                         <a href="#" class="nav-link" onclick="showTab('remedies')">Home Remedies</a>
@@ -161,7 +163,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
-                        </button>
+                        </button> 
                     </div>
                 </div>
             </div>
@@ -177,6 +179,7 @@
                 </button>
             </div>
             <nav class="flex flex-col gap-4">
+              
                 <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-100 hover:text-purple-500" onclick="showTab('home'); closeMobileMenu()">Home</a>
                 <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-100 hover:text-purple-500" onclick="showTab('remedies'); closeMobileMenu()">Home Remedies</a>
                 <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-100 hover:text-purple-500" onclick="showTab('mood'); closeMobileMenu()">Mood Tracker</a>
@@ -289,6 +292,7 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                             </svg>
                                         </button>
+                                      
                                     </div>
                                   <div class="grid grid-cols-7 gap-1" id="calendar-container">
                                         <div class="text-center text-sm font-medium py-2">Sun</div>
