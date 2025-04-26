@@ -212,5 +212,6 @@ function updateCalendarDisplay() {
   currentMonthDisplay.textContent = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric" }).format(
     currentMonth,
   )
-
-
+// Clear existing calendar days (except header)
+  const dayElements = calendarContainer.querySelectorAll(".calendar-day")
+  dayElements.forEach((day) => day.remove())
