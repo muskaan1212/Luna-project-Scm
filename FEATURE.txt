@@ -1,1 +1,1 @@
-This feature will allow dashboard theme customizationsss.
+This feature allows dashboard customization with themes.
