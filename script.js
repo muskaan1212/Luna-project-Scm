@@ -215,3 +215,7 @@ function updateCalendarDisplay() {
 // Clear existing calendar days (except header)
   const dayElements = calendarContainer.querySelectorAll(".calendar-day")
   dayElements.forEach((day) => day.remove())
+  
+// Get first day of month and last day of month
+  const firstDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1)
+  const lastDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0)
