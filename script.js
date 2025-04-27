@@ -396,3 +396,22 @@ let moodEmoji = ""
     moodTitle = "Fantastic Day!"
     recommendation = "Your mood is great! Perfect time for activities you enjoy."
   } 
+ else if (energy === "low" && comfort === "pain") {
+    moodEmoji = "🫂"
+    moodTitle = "Need Extra Care"
+    recommendation = "Take it easy today. Try some relaxation techniques and consider a warm bath."
+  } else if (emotion === "anxious" || emotion === "irritated") {
+    moodEmoji = "😤"
+    moodTitle = "Feeling Tense"
+    recommendation = "Try some deep breathing exercises or meditation to help calm your mind."
+  } 
+   else if (emotion === "sad") {
+    moodEmoji = "💜"
+    moodTitle = "Need Support"
+    recommendation = "Be gentle with yourself today. Consider talking to a friend or doing something you enjoy."
+  } else {
+    moodEmoji = "😌"
+    moodTitle = "Balanced"
+    recommendation = "You're doing okay! Maintain this balance with regular self-care."
+  }
+
