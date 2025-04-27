@@ -1,4 +1,4 @@
-// DOM Elements
+ // DOM Elements
 const loginPage = document.getElementById("login-page")
 const dashboardPage = document.getElementById("dashboard-page")
 const loginForm = document.getElementById("login-form-element")
