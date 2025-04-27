@@ -135,13 +135,7 @@
      alert("Passwords do not match")
      return
    }
-  // In a real app, you would register with a backend
-  // For demo purposes, we'll just simulate a successful registration
-  setTimeout(() => {
-    loginPage.classList.add("hidden")
-    dashboardPage.classList.remove("hidden")
-
-
+ 
   // In a real app, you would register with a backend
   // For demo purposes, we'll just simulate a successful registration
   setTimeout(() => {
