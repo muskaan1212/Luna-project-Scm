@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LUNA-the period tracker</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna - Period Tracker</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- Login Page -->
+    <!-- Login Page -->
     <div id="login-page" class="min-h-screen flex flex-col">
         <header class="bg-purple-500 text-white py-4 px-6 shadow-md">
             <div class="container mx-auto flex justify-between items-center">
@@ -18,16 +18,14 @@
             </div>
         </header>
 
-    
-
         <main class="flex-1 container mx-auto grid md:grid-cols-2 gap-8 py-12 px-4">
             <div class="flex flex-col justify-center space-y-6 max-w-md mx-auto w-full">
                 <div class="space-y-2 text-center">
                     <h1 class="text-3xl font-bold">Welcome to Luna</h1>
                     <p class="text-gray-500">Track your cycle, understand your body, and take control of your health</p>
-            
                 </div>
-                             <div class="auth-container">
+                
+                <div class="auth-container">
                     <div class="auth-tabs">
                         <div class="auth-tab active" data-tab="login">Login</div>
                         <div class="auth-tab" data-tab="register">Register</div>
@@ -56,7 +54,8 @@
                                 </form>
                             </div>
                         </div>
-                     <div id="register-form" class="auth-form">
+                        
+                        <div id="register-form" class="auth-form">
                             <div class="card-header">
                                 <h2 class="card-title">Create an account</h2>
                                 <p class="card-description">Enter your information to create a Luna account</p>
@@ -133,7 +132,8 @@
             </div>
         </main>
     </div>
-      <!-- Dashboard Page -->
+
+    <!-- Dashboard Page -->
     <div id="dashboard-page" class="min-h-screen flex flex-col hidden">
         <!-- Navigation -->
         <nav class="bg-purple-500 text-white sticky top-0 z-50 shadow-md">
@@ -142,8 +142,8 @@
                     <div class="flex items-center">
                         <a href="#" class="text-xl font-bold" onclick="showTab('home')">Luna</a>
                     </div>
-    <!-- Desktop Navigation -->
-                  
+                    
+                    <!-- Desktop Navigation -->
                     <div class="hidden md:flex items-center space-x-4">
                         <a href="#" class="nav-link active" onclick="showTab('home')">Home</a>
                         <a href="#" class="nav-link" onclick="showTab('remedies')">Home Remedies</a>
@@ -171,7 +171,8 @@
                 </div>
             </div>
         </nav>
-      <!-- Mobile Menu -->
+
+        <!-- Mobile Menu -->
         <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
         <div class="mobile-menu" id="mobile-menu">
             <div class="flex justify-end mb-6">
@@ -182,7 +183,6 @@
                 </button>
             </div>
             <nav class="flex flex-col gap-4">
-              
                 <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-100 hover:text-purple-500" onclick="showTab('home'); closeMobileMenu()">Home</a>
                 <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-100 hover:text-purple-500" onclick="showTab('remedies'); closeMobileMenu()">Home Remedies</a>
                 <a href="#" class="px-3 py-2 rounded-md text-sm font-medium hover:bg-purple-100 hover:text-purple-500" onclick="showTab('mood'); closeMobileMenu()">Mood Tracker</a>
@@ -193,7 +193,8 @@
                 <button class="btn btn-outline mt-4" onclick="logout()">Logout</button>
             </nav>
         </div>
-      <!-- Main Content -->
+
+        <!-- Main Content -->
         <main class="flex-1">
             <!-- Home Tab -->
             <div id="home" class="tab-content active">
@@ -295,9 +296,9 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                                             </svg>
                                         </button>
-                                      
                                     </div>
-                                  <div class="grid grid-cols-7 gap-1" id="calendar-container">
+                                    
+                                    <div class="grid grid-cols-7 gap-1" id="calendar-container">
                                         <div class="text-center text-sm font-medium py-2">Sun</div>
                                         <div class="text-center text-sm font-medium py-2">Mon</div>
                                         <div class="text-center text-sm font-medium py-2">Tue</div>
@@ -324,7 +325,8 @@
                     </div>
                 </div>
             </div>
-          <!-- Mood Tracker Tab -->
+
+            <!-- Mood Tracker Tab -->
             <div id="mood" class="tab-content">
                 <div class="container mx-auto py-8 px-4 space-y-8">
                     <div class="card scale-in">
@@ -415,7 +417,8 @@
                     </div>
                 </div>
             </div>
-  <!-- Remedies Tab -->
+
+            <!-- Remedies Tab -->
             <div id="remedies" class="tab-content">
                 <div class="container mx-auto py-8 px-4 space-y-8">
                     <div class="card scale-in">
@@ -519,7 +522,8 @@
                     </div>
                 </div>
             </div>
-          <!-- Contact Tab -->
+
+            <!-- Contact Tab -->
             <div id="contact" class="tab-content">
                 <div class="container mx-auto py-8 px-4 space-y-8">
                     <div class="card scale-in">
@@ -560,7 +564,8 @@
                     </div>
                 </div>
             </div>
-          <!-- Analysis Tab -->
+
+            <!-- Analysis Tab -->
             <div id="analysis" class="tab-content">
                 <div class="container mx-auto py-8 px-4 space-y-8">
                     <div class="card scale-in">
@@ -621,7 +626,8 @@
                     </div>
                 </div>
             </div>
-<!-- About Tab -->
+
+            <!-- About Tab -->
             <div id="about" class="tab-content">
                 <div class="container mx-auto py-8 px-4 space-y-8">
                     <div class="card scale-in">
@@ -701,6 +707,46 @@
                     </div>
                 </div>
             </div>
-<script src="script.js"></script>
+
+            <!-- Meet the Developers Tab -->
+            <div id="developers" class="tab-content">
+                <div class="container mx-auto py-8 px-4 space-y-8">
+                    <div class="card scale-in">
+                        <div class="card-header">
+                            <h2 class="card-title">Meet the Developers</h2>
+                            <p class="card-description">The team behind Luna</p>
+                        </div>
+                        <div class="card-content">
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg">
+                                    <img src="WhatsApp Image 2025-03-03 at 20.39.14_fa81ed8b.jpg" alt="Muskaan" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h3 class="text-xl font-semibold mb-2">Muskaan</h3>
+                                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-2">Lead Developer</p>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400">Muskaan led the development of Luna, focusing on the core functionality and user experience.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-md overflow-hidden transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg">
+                                    <img src="WhatsApp Image 2025-02-27 at 21.06.57_2e9057ab.jpg" alt="Harsh Pathak" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h3 class="text-xl font-semibold mb-2">Harsh Pathak</h3>
+                                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-2">UI/UX Designer</p>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400">Harsh crafted the beautiful and intuitive interface of Luna, ensuring a seamless user experience.</p>
+                                    </div>
+                                </div>
+                                
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
+
