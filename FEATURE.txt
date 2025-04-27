@@ -1,1 +1,31 @@
-This feature enables user profile customization and allows dashboard customization with themes.
+Features of the Project:
+
+1. User Authentication
+   - Login and Signup functionalities for users.
+
+2. Dashboard
+   - Personalized user dashboard after login.
+
+3. Data Management
+   - Ability to add, edit, delete, and view data entries.
+
+4. Notifications
+   - Real-time updates and notifications for user activities.
+
+5. Search and Filter
+   - Search and filter options for faster access to information.
+
+6. Responsive Design
+   - Fully mobile-friendly and adaptable interface.
+
+7. Admin Panel
+   - Admins can manage users, content, and system settings.
+
+8. Reports and Analytics
+   - Generate and view reports on system usage and activities.
+
+9. Security Features
+   - Password encryption, data protection, and secure APIs.
+
+10. Regular Updates
+    - New features and improvements rolled out periodically.
