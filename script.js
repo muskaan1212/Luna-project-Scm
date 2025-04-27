@@ -390,3 +390,9 @@ function analyzeMood() {
 let moodEmoji = ""
   let moodTitle = ""
   let recommendation = ""
+  // Analyze mood based on combinations
+  if (energy === "high" && comfort === "good" && ["happy", "neutral"].includes(emotion)) {
+    moodEmoji = "🌟"
+    moodTitle = "Fantastic Day!"
+    recommendation = "Your mood is great! Perfect time for activities you enjoy."
+  } 
