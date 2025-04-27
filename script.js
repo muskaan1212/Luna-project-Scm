@@ -597,3 +597,30 @@ function calculateNextPeriod() {
 
   const lastPeriod = new Date(lastPeriodInput.value)
   const cycleDuration = Number.parseInt(cycleDurationInput.value)
+
+   // Calculate next period
+  const nextPeriod = new Date(lastPeriod)
+  nextPeriod.setDate(lastPeriod.getDate() + cycleDuration)
+
+  // Calculate fertile window
+  const fertileStart = new Date(nextPeriod)
+  fertileStart.setDate(nextPeriod.getDate() - 16)
+  const fertileEnd = new Date(nextPeriod)
+  fertileEnd.setDate(nextPeriod.getDate() - 12)
+
+  // Calculate days until next period
+  const today = new Date()
+  const daysUntil = Math.ceil((nextPeriod - today) / (1000 * 60 * 60 * 24))
+
+  // Update result display
+  document.getElementById("next-period-date").textContent = formatDate(nextPeriod)
+  document.getElementById("fertile-window").textContent = `${formatDate(fertileStart)} - ${formatDate(fertileEnd)}`
+  document.getElementById("days-until").textContent = `${daysUntil} days`
+  document.getElementById("cycle-length").textContent = `${cycleDuration} days`
+
+  // Update stats display
+  document.getElementById("last-period-display").textContent = formatDate(lastPeriod, "short")
+  document.getElementById("next-period-display").textContent = formatDate(nextPeriod, "short")
+
+  // Show result
+  document.getElementById("period-result").classList.remove("hidden")
