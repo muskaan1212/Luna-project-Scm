@@ -387,3 +387,6 @@ function analyzeMood() {
     alert("Please fill in all fields")
     return
   }
+let moodEmoji = ""
+  let moodTitle = ""
+  let recommendation = ""
