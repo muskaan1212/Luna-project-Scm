@@ -189,12 +189,14 @@ function showTab(tabId) {
   })
 
   // Update tab content
+  
   tabContents.forEach((tab) => {
     tab.classList.remove("active")
   })
   document.getElementById(tabId).classList.add("active")
 
   // Animate staggered items in the new tab
+  
   animateStaggeredItems()
 }
 
@@ -217,6 +219,7 @@ function updateCalendarDisplay() {
   dayElements.forEach((day) => day.remove())
   
 // Get first day of month and last day of month
+  
   const firstDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1)
   const lastDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0)
  // Add empty cells for days before the first day of the month
@@ -241,6 +244,7 @@ function updateCalendarDisplay() {
     const emptyCell = document.createElement("div")
     calendarContainer.appendChild(emptyCell)
   }
+  
 // Add days of the month
   for (let day = 1; day <= lastDay.getDate(); day++) {
     const date = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day)
@@ -254,6 +258,7 @@ function updateCalendarDisplay() {
       dayElement.classList.add("fertile")
     }
     // Check if this day is selected
+    
     if (selectedDate && isSameDay(date, selectedDate)) {
       dayElement.classList.add("selected")
     }
