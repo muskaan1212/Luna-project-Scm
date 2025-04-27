@@ -431,4 +431,52 @@ let moodEmoji = ""
     }, index * 100)
   })
 }
+// Form submission functions
+function submitFeedback() {
+  const name = document.getElementById("name").value
+  const email = document.getElementById("email").value
+  const rating = document.getElementById("rating").value
+  const message = document.getElementById("message").value
 
+  // In a real app, you would send this data to a backend
+  alert(Thank you for your feedback, ${name}!)
+  document.getElementById("feedback-form").reset()
+}
+
+function submitHealthData() {
+  const age = document.getElementById("age").value
+  const regularity = document.getElementById("regularity").value
+  const symptoms = document.getElementById("symptoms").value
+
+  // In a real app, you would send this data to a backend
+  alert("Thank you for sharing your experience. Your data helps us provide better insights.")
+  document.getElementById("health-form").reset()
+}
+function submitHealthData() {
+  const age = document.getElementById("age").value
+  const regularity = document.getElementById("regularity").value
+  const symptoms = document.getElementById("symptoms").value
+
+  // In a real app, you would send this data to a backend
+  alert("Thank you for sharing your experience. Your data helps us provide better insights.")
+  document.getElementById("health-form").reset()
+}
+
+// Helper functions
+function formatDate(date, format = "long") {
+  if (format === "long") {
+    return new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }).format(date)} else {
+    return new Intl.DateTimeFormat("en-US", {
+      month: "short",
+      day: "numeric",
+    }).format(date)
+  }
+}
+
+// Initialize the app
+document.addEventListener("DOMContentLoaded", init)
+   
