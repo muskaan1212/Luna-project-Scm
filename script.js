@@ -373,3 +373,17 @@ function updateCalendarWithPeriodData(lastPeriod, nextPeriod, fertileStart, fert
     fertileWindow.push(new Date(currentFertileDay))
     currentFertileDay.setDate(currentFertileDay.getDate() + 1)
   }
+// Update calendar display
+  updateCalendarDisplay()
+}
+
+// Mood tracker functions
+function analyzeMood() {
+  const energy = document.getElementById("energy").value
+  const comfort = document.getElementById("comfort").value
+  const emotion = document.getElementById("emotion").value
+
+  if (!energy || !comfort || !emotion) {
+    alert("Please fill in all fields")
+    return
+  }
