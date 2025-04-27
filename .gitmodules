@@ -1,0 +1,3 @@
+[submodule "external/Hello-World"]
+	path = external/Hello-World
+	url = https://github.com/octocat/Hello-World
