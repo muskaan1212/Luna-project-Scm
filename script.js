@@ -18,12 +18,6 @@ const currentMonthDisplay = document.getElementById("current-month-display")
 const calendarContainer = document.getElementById("calendar-container")
 const feedbackForm = document.getElementById("feedback-form")
 const healthForm = document.getElementById("health-form")
-const notificationsToggle = document.getElementById("notifications-toggle")
-const notificationsPanel = document.getElementById("notifications-panel")
-const exportDataBtn = document.getElementById("export-data-btn")
-const symptomForm = document.getElementById("symptom-form")
-const symptomsList = document.getElementById("symptoms-list")
-const cycleInsightsContainer = document.getElementById("cycle-insights-container")
 
 // State
 let currentMonth = new Date()
@@ -31,13 +25,6 @@ let selectedDate = null
 let periodDays = []
 let fertileWindow = []
 let isDarkMode = false
-let notifications = []
-let symptoms = []
-let cycleInsights = {
-  averageCycleLength: 28,
-  averagePeriodLength: 5,
-  commonSymptoms: ["cramps", "fatigue", "headache"]
-}
 
 // Initialize the app
 function init() {
@@ -49,16 +36,6 @@ function init() {
 
   // Animate staggered items
   animateStaggeredItems()
-
-  // Initialize new features
-  updateNotificationBadge()
-  renderSymptoms()
-  updateCycleInsights()
-  
-  // Add a welcome notification for demo purposes
-  setTimeout(() => {
-    addNotification("Welcome to Luna! Track your cycle and take control of your health.", "info")
-  }, 2000)
 }
 
 // Set up event listeners
@@ -89,9 +66,9 @@ function setupEventListeners() {
   // Mobile menu
   mobileMenuToggle.addEventListener("click", toggleMobileMenu)
   mobileMenuClose.addEventListener("click", closeMobileMenu)
-  mobileMenuOverlay.addEventListener("click", closeMobileMenu)
+  mobileMenuOverlay.addEventListener("click", closeMobileMenu) //done
 
-  // Theme toggle
+  // Theme toggle 
   themeToggle.addEventListener("click", toggleTheme)
 
   // Calendar navigation
@@ -115,22 +92,6 @@ function setupEventListeners() {
     e.preventDefault()
     submitHealthData()
   })
-  
-  // Add these new event listeners
-  if (notificationsToggle) {
-    notificationsToggle.addEventListener("click", toggleNotifications)
-  }
-  
-  if (exportDataBtn) {
-    exportDataBtn.addEventListener("click", exportUserData)
-  }
-  
-  if (symptomForm) {
-    symptomForm.addEventListener("submit", (e) => {
-      e.preventDefault()
-      addSymptom()
-    })
-  }
 }
 
 // Authentication functions
@@ -253,26 +214,7 @@ function animateStaggeredItems() {
   })
 }
 
-// Calendar functions// Calendar functions
-function updateCalendarDisplay() {
-  // Update month display
-  currentMonthDisplay.textContent = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric" }).format(
-    currentMonth,
-  )
-
-  // Clear existing calendar days (except header)
-  const dayElements = calendarContainer.querySelectorAll(".calendar-day")
-  dayElements.forEach((day) => day.remove())
-
-  // Get first day of month and last day of month
-  const firstDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1)
-  const lastDay = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0)
-
-  // Add empty cells for days before the first day of the month
-  for (let i = 0; i < firstDay.getDay(); i++) {
-    const emptyCell = document.createElement("div")
-    calendarContainer.appendChild(emptyCell)
-  }
+// Calendar functions
 function updateCalendarDisplay() {
   // Update month display
   currentMonthDisplay.textContent = new Intl.DateTimeFormat("en-US", { month: "long", year: "numeric" }).format(
@@ -521,263 +463,6 @@ function formatDate(date, format = "long") {
   }
 }
 
-// Notifications functions
-function toggleNotifications() {
-  notificationsPanel.classList.toggle("open")
-}
-
-function addNotification(message, type = "info") {
-  const notification = {
-    id: Date.now(),
-    message,
-    type,
-    read: false,
-    timestamp: new Date()
-  }
-  
-  notifications.unshift(notification)
-  
-  // Update notification badge
-  updateNotificationBadge()
-  
-  // Update notifications panel if open
-  if (notificationsPanel.classList.contains("open")) {
-    renderNotifications()
-  }
-}
-
-function updateNotificationBadge() {
-  const unreadCount = notifications.filter(n => !n.read).length
-  const badge = document.getElementById("notifications-badge")
-  
-  if (badge) {
-    if (unreadCount > 0) {
-      badge.textContent = unreadCount
-      badge.classList.remove("hidden")
-    } else {
-      badge.classList.add("hidden")
-    }
-  }
-}
-
-function renderNotifications() {
-  const notificationsList = document.getElementById("notifications-list")
-  
-  if (!notificationsList) return
-  
-  notificationsList.innerHTML = ""
-  
-  if (notifications.length === 0) {
-    notificationsList.innerHTML = `<div class="p-4 text-center text-gray-500">No notifications</div>`
-    return
-  }
-  
-  notifications.forEach(notification => {
-    const notificationEl = document.createElement("div")
-    notificationEl.classList.add("notification-item")
-    if (notification.read) {
-      notificationEl.classList.add("read")
-    }
-    
-    notificationEl.innerHTML = `
-      <div class="notification-content">
-        <p class="notification-message">${notification.message}</p>
-        <span class="notification-time">${formatTimeAgo(notification.timestamp)}</span>
-      </div>
-      <button class="notification-action" data-id="${notification.id}">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    `
-    
-    notificationsList.appendChild(notificationEl)
-    
-    // Add event listener to mark as read/delete
-    notificationEl.querySelector(".notification-action").addEventListener("click", () => {
-      removeNotification(notification.id)
-    })
-    
-    // Mark as read when viewed
-    if (!notification.read) {
-      notification.read = true
-      updateNotificationBadge()
-    }
-  })
-}
-
-function removeNotification(id) {
-  notifications = notifications.filter(n => n.id !== id)
-  renderNotifications()
-  updateNotificationBadge()
-}
-
-function formatTimeAgo(date) {
-  const now = new Date()
-  const diffInSeconds = Math.floor((now - date) / 1000)
-  
-  if (diffInSeconds < 60) {
-    return "just now"
-  } else if (diffInSeconds < 3600) {
-    const minutes = Math.floor(diffInSeconds / 60)
-    return `${minutes} minute${minutes > 1 ? 's' : ''} ago`
-  } else if (diffInSeconds < 86400) {
-    const hours = Math.floor(diffInSeconds / 3600)
-    return `${hours} hour${hours > 1 ? 's' : ''} ago`
-  } else {
-    const days = Math.floor(diffInSeconds / 86400)
-    return `${days} day${days > 1 ? 's' : ''} ago`
-  }
-}
-
-// Data export function
-function exportUserData() {
-  const userData = {
-    periodDays,
-    fertileWindow,
-    symptoms,
-    cycleInsights,
-    lastExport: new Date()
-  }
-  
-  // Convert to JSON string
-  const dataStr = JSON.stringify(userData, null, 2)
-  
-  // Create a blob and download link
-  const blob = new Blob([dataStr], { type: "application/json" })
-  const url = URL.createObjectURL(blob)
-  
-  const a = document.createElement("a")
-  a.href = url
-  a.download = `luna_data_${formatDate(new Date(), "short").replace(/\s/g, "_")}.json`
-  document.body.appendChild(a)
-  a.click()
-  
-  // Clean up
-  setTimeout(() => {
-    document.body.removeChild(a)
-    URL.revokeObjectURL(url)
-  }, 100)
-  
-  // Add notification
-  addNotification("Your data has been exported successfully", "success")
-}
-
-// Symptom tracking functions
-function addSymptom() {
-  const symptomInput = document.getElementById("symptom-input")
-  const severityInput = document.getElementById("symptom-severity")
-  
-  if (!symptomInput || !symptomInput.value.trim()) return
-  
-  const symptom = {
-    id: Date.now(),
-    name: symptomInput.value.trim(),
-    severity: severityInput ? severityInput.value : "moderate",
-    date: new Date()
-  }
-  
-  symptoms.push(symptom)
-  
-  // Update UI
-  renderSymptoms()
-  
-  // Reset form
-  symptomInput.value = ""
-  if (severityInput) severityInput.value = "moderate"
-  
-  // Update insights
-  updateCycleInsights()
-}
-
-function renderSymptoms() {
-  if (!symptomsList) return
-  
-  symptomsList.innerHTML = ""
-  
-  if (symptoms.length === 0) {
-    symptomsList.innerHTML = `<div class="p-4 text-center text-gray-500">No symptoms recorded</div>`
-    return
-  }
-  
-  // Group symptoms by date
-  const groupedSymptoms = {}
-  symptoms.forEach(symptom => {
-    const dateKey = formatDate(symptom.date, "short")
-    if (!groupedSymptoms[dateKey]) {
-      groupedSymptoms[dateKey] = []
-    }
-    groupedSymptoms[dateKey].push(symptom)
-  })
-  
-  // Render grouped symptoms
-  Object.keys(groupedSymptoms).forEach(date => {
-    const dateGroup = document.createElement("div")
-    dateGroup.classList.add("symptom-date-group")
-    
-    dateGroup.innerHTML = `<h4 class="text-sm font-medium text-gray-500 mb-2">${date}</h4>`
-    
-    const symptomItems = document.createElement("div")
-    symptomItems.classList.add("space-y-2")
-    
-    groupedSymptoms[date].forEach(symptom => {
-      const symptomItem = document.createElement("div")
-      symptomItem.classList.add("symptom-item")
-      
-      // Set color based on severity
-      let severityColor = "bg-yellow-100"
-      if (symptom.severity === "mild") severityColor = "bg-green-100"
-      if (symptom.severity === "severe") severityColor = "bg-red-100"
-      
-      symptomItem.innerHTML = `
-        <div class="flex items-center justify-between">
-          <div class="flex items-center">
-            <span class="w-2 h-2 rounded-full ${severityColor} mr-2"></span>
-            <span>${symptom.name}</span>
-          </div>
-          <span class="text-xs text-gray-500">${symptom.severity}</span>
-        </div>
-      `
-      
-      symptomItems.appendChild(symptomItem)
-    })
-    
-    dateGroup.appendChild(symptomItems)
-    symptomsList.appendChild(dateGroup)
-  })
-}
-
-// Cycle insights functions
-function updateCycleInsights() {
-  if (!cycleInsightsContainer) return
-  
-  // In a real app, this would calculate insights based on user data
-  // For demo purposes, we'll just update the UI with sample data
-  
-  cycleInsightsContainer.innerHTML = `
-    <div class="grid grid-cols-2 gap-4 mb-4">
-      <div class="bg-gray-100 rounded-lg p-4 text-center">
-        <p class="text-sm text-gray-500">Avg. Cycle</p>
-        <p class="text-2xl font-bold">${cycleInsights.averageCycleLength} days</p>
-      </div>
-      <div class="bg-gray-100 rounded-lg p-4 text-center">
-        <p class="text-sm text-gray-500">Avg. Period</p>
-        <p class="text-2xl font-bold">${cycleInsights.averagePeriodLength} days</p>
-      </div>
-    </div>
-    
-    <h4 class="font-medium mb-2">Common Symptoms</h4>
-    <div class="flex flex-wrap gap-2 mb-4">
-      ${cycleInsights.commonSymptoms.map(symptom => 
-        `<span class="px-2 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">${symptom}</span>`
-      ).join('')}
-    </div>
-    
-    <h4 class="font-medium mb-2">Recommendations</h4>
-    <p class="text-sm text-gray-600">Based on your cycle patterns, consider tracking your mood 7-10 days before your expected period to identify PMS patterns.</p>
-  `
-}
-
 // Initialize the app
 document.addEventListener("DOMContentLoaded", init)
-}
+
