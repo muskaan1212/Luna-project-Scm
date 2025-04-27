@@ -414,4 +414,21 @@ let moodEmoji = ""
     moodTitle = "Balanced"
     recommendation = "You're doing okay! Maintain this balance with regular self-care."
   }
+ // Update result display
+  document.getElementById("mood-emoji").textContent = moodEmoji
+  document.getElementById("mood-title").textContent = moodTitle
+  document.getElementById("mood-recommendation").textContent = recommendation
+
+  // Show result with animation
+  const moodResult = document.getElementById("mood-result")
+  moodResult.classList.remove("hidden")
+
+  // Animate staggered items
+  const staggeredItems = moodResult.querySelectorAll(".staggered-item")
+  staggeredItems.forEach((item, index) => {
+    setTimeout(() => {
+      item.classList.add("fade-in")
+    }, index * 100)
+  })
+}
 
