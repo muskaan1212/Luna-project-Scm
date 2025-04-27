@@ -585,3 +585,15 @@ function isSameDay(date1, date2) {
     date1.getDate() === date2.getDate()
   )
 }
+// Period calculator functions
+function calculateNextPeriod() {
+  const lastPeriodInput = document.getElementById("lastPeriod")
+  const cycleDurationInput = document.getElementById("cycleDuration")
+
+  if (!lastPeriodInput.value) {
+    alert("Please select your last period date")
+    return
+  }
+
+  const lastPeriod = new Date(lastPeriodInput.value)
+  const cycleDuration = Number.parseInt(cycleDurationInput.value)
