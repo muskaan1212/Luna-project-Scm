@@ -780,3 +780,4 @@ function updateCycleInsights() {
 
 // Initialize the app
 document.addEventListener("DOMContentLoaded", init)
+}
