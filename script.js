@@ -566,6 +566,7 @@ const loginPage = document.getElementById("login-page")
      selectedDate = date
      element.classList.add("selected")
    }
+
    // Toggle period day
   if (periodDays.some((d) => isSameDay(d, date))) {
     periodDays = periodDays.filter((d) => !isSameDay(d, date))
@@ -582,5 +583,5 @@ function isSameDay(date1, date2) {
     date1.getFullYear() === date2.getFullYear() &&
     date1.getMonth() === date2.getMonth() &&
     date1.getDate() === date2.getDate()
-  )
+  )
 }
