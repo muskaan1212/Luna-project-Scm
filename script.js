@@ -1,4 +1,6 @@
-//DOM element
+
+//DOM elements
+
  const loginPage = document.getElementById("login-page")
  const dashboardPage = document.getElementById("dashboard-page")
  const loginForm = document.getElementById("login-form-element")
@@ -108,7 +110,7 @@
      loginPage.classList.add("hidden")
      dashboardPage.classList.remove("hidden")
  
-  Updated upstream
+  
      // Animate nav items
      document.querySelectorAll(".nav-item").forEach((item, index) => {
        setTimeout(() => {
@@ -138,7 +140,14 @@
   setTimeout(() => {
     loginPage.classList.add("hidden")
     dashboardPage.classList.remove("hidden")
- 
+
+
+  // In a real app, you would register with a backend
+  // For demo purposes, we'll just simulate a successful registration
+  setTimeout(() => {
+    loginPage.classList.add("hidden")
+    dashboardPage.classList.remove("hidden")
+  
      // Animate nav items
      document.querySelectorAll(".nav-item").forEach((item, index) => {
        setTimeout(() => {
