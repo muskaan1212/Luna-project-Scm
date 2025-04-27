@@ -624,3 +624,29 @@ function calculateNextPeriod() {
 
   // Show result
   document.getElementById("period-result").classList.remove("hidden")
+// Update calendar
+  updateCalendarWithPeriodData(lastPeriod, nextPeriod, fertileStart, fertileEnd)
+}
+
+function updateCalendarWithPeriodData(lastPeriod, nextPeriod, fertileStart, fertileEnd) {
+  // Clear existing period and fertile days
+  periodDays = []
+  fertileWindow = []
+
+  // Add period days (assuming 5-day period)
+  for (let i = 0; i < 5; i++) {
+    const periodDay = new Date(lastPeriod)
+    periodDay.setDate(lastPeriod.getDate() + i)
+    periodDays.push(periodDay)
+
+    const nextPeriodDay = new Date(nextPeriod)
+    nextPeriodDay.setDate(nextPeriod.getDate() + i)
+    periodDays.push(nextPeriodDay)
+  }
+
+  // Add fertile window days
+  const currentFertileDay = new Date(fertileStart)
+  while (currentFertileDay <= fertileEnd) {
+    fertileWindow.push(new Date(currentFertileDay))
+    currentFertileDay.setDate(currentFertileDay.getDate() + 1)
+  }
