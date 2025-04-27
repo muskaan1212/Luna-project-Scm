@@ -1,5 +1,5 @@
 :root {
-  --primary: #df40b0;
+  --primary: #c45b40;
   --primary-light: #e4b7e5;
   --secondary: #e4b7e5;
   --accent: #a7d7c5;
@@ -68,7 +68,13 @@ body {
 .btn-outline:hover {
   background-color: var(--muted);
 }
-.card { /* Card component */
+
+.btn-icon {
+  padding: 0.5rem;
+  border-radius: 9999px;
+}
+
+.card {
   background-color: var(--card);
   border-radius: 0.75rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -113,10 +119,7 @@ body {
   background-color: var(--background);
   color: var(--text);
 }
-.btn-icon {
-  padding: 0.5rem;
-  border-radius: 9999px;
-}
+
 .form-select {
   width: 100%;
   padding: 0.5rem 0.75rem;
@@ -126,7 +129,7 @@ body {
   color: var(--text);
 }
 
-.calendar { /* Calendar component */
+.calendar {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 0.25rem;
@@ -190,6 +193,7 @@ body {
   height: 2px;
   background-color: white;
 }
+
 /* Animations */
 @keyframes fadeIn {
   from {
@@ -303,6 +307,7 @@ body {
   display: block;
   animation: fadeIn 0.5s ease-in-out forwards;
 }
+
 /* Custom styles for mood tracker */
 .mood-grid {
   display: grid;
@@ -370,4 +375,83 @@ body {
 .auth-form.active {
   display: block;
   animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+/* Notifications */
+.notifications-panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 320px;
+  background-color: var(--card);
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  z-index: 30;
+  overflow: hidden;
+  display: none;
+  transform-origin: top right;
+  animation: scaleIn 0.2s ease-out forwards;
+}
+
+.notifications-panel.open {
+  display: block;
+}
+
+.notification-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--muted);
+  transition: background-color 0.2s ease;
+}
+
+.notification-item:hover {
+  background-color: var(--muted);
+}
+
+.notification-item.read {
+  opacity: 0.7;
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.notification-message {
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.notification-time {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.notification-action {
+  color: var(--muted-foreground);
+  padding: 0.25rem;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.notification-action:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: var(--text);
+}
+
+/* Symptom tracker */
+.symptom-date-group {
+  margin-bottom: 1rem;
+}
+
+.symptom-item {
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  background-color: var(--muted);
+  transition: all 0.2s ease;
+}
+
+.symptom-item:hover {
+  transform: translateX(2px);
 }
