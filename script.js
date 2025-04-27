@@ -1,4 +1,3 @@
- js-feature
 // DOM Elements
 const loginPage = document.getElementById("login-page")
 const dashboardPage = document.getElementById("dashboard-page")
@@ -567,4 +566,21 @@ const loginPage = document.getElementById("login-page")
      selectedDate = date
      element.classList.add("selected")
    }
-   main
+   // Toggle period day
+  if (periodDays.some((d) => isSameDay(d, date))) {
+    periodDays = periodDays.filter((d) => !isSameDay(d, date))
+    element.classList.remove("period")
+  } else {
+    periodDays.push(date)
+    element.classList.add("period")
+    element.classList.remove("fertile") // Can't be both period and fertile
+  }
+}
+
+function isSameDay(date1, date2) {
+  return (
+    date1.getFullYear() === date2.getFullYear() &&
+    date1.getMonth() === date2.getMonth() &&
+    date1.getDate() === date2.getDate()
+  )
+}
